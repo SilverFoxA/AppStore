@@ -1,1 +1,551 @@
-hello world
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Elpha - Three individual on a quest to revolutionise the technology.</title>
+        <meta name="author" content="Alvaro Trigo Lopez" />
+        <meta name="description" content="fullPage plugin by Alvaro Trigo. Pure javascript version of full screen slider." />
+        <meta name="keywords"  content="fullpage,jquery,alvaro,trigo,plugin,fullscren,screen,full,iphone5,apple,pure,javascript,slider,hijacking" />
+        <meta name="Resource-type" content="Document" />
+
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="javascript.fullPage.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,300,200,100,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+        <style>
+            /* Reset CSS
+             * --------------------------------------- */
+            body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+            form,fieldset,input,textarea,p,blockquote,th,td {
+                padding: 0;
+                margin: 0;
+            }
+            a{
+                text-decoration:none;
+            }
+            table {
+                border-spacing: 0;
+            }
+            fieldset,img {
+                border: 0;
+            }
+            address,caption,cite,code,dfn,em,strong,th,var {
+                font-weight: normal;
+                font-style: normal;
+            }
+            strong{
+                font-weight: bold;
+            }
+            ol,ul {
+                list-style: none;
+                margin:0;
+                padding:0;
+            }
+            caption,th {
+                text-align: left;
+
+            }
+            h1,h2,h3,h4,h5,h6 {
+                font-weight: normal;
+                font-size: 100%;
+                margin:0;
+                padding:0;
+                color:#444;
+            }
+            q:before,q:after {
+                content:'';
+            }
+            abbr,acronym { border: 0;
+            }
+
+
+            /* Custom CSS
+             * --------------------------------------- */
+            body{
+                font-family: arial,helvetica;
+                color: #F2F2F2;
+            }
+            h1{
+                font-size: 6em;
+            }
+            p{
+                font-size: 2em;
+            }
+            .content{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                text-align: center;
+
+            }
+
+            /* Section 1
+             * --------------------------------------- */
+            #section0{
+
+                background-color: #2C3E50;
+
+/*
+                background-image: url("http://images.alphacoders.com/511/511052.jpg");
+                background-size: cover;
+*/
+            }
+            #section0 h1{
+                color: #444;
+            }
+            #section0 p{
+                color: #333;
+                opacity: 0.4;
+            }
+
+
+            /* Section 2
+             * --------------------------------------- */
+            #section1{
+                background-color: #2EBE21;
+            }
+            #section1 h1{
+                color: #fff;
+            }
+            #section1 p{
+                opacity: 0.8;
+            }
+
+
+            /* Section 3
+             * --------------------------------------- */
+            #section2{
+                background-color: #BFDA00;
+            }
+            #section2 h1{
+                color: #F2F2F2;
+            }
+            #section2 p{
+                opacity: 0.6;
+            }
+
+            .demo-card-wide.mdl-card {
+      width: 512px;
+    }
+    .demo-card-wide > .mdl-card__title {
+          color: #fff;
+          height: 176px;
+          background: url('../assets/demos/welcome_card.jpg') center / cover;
+    }
+    .demo-card-wide > .mdl-card__menu {
+      color: #fff;
+    }
+            .demo-layout-transparent {
+      background: url('../assets/demos/transparent.jpg') center / cover;
+    }
+    .demo-layout-transparent .mdl-layout__header,
+    .demo-layout-transparent .mdl-layout__drawer-button {
+      /* This background is dark, so we set text to white. Use 87% black instead if
+         your background is light. */
+      color: white;
+    }
+            
+            *{
+  margin:0;
+  padding:0;
+}
+#categories{
+  overflow:hidden;
+  width:90%;
+  margin:0 auto;
+}
+.clr:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+#categories li{
+  position:relative;
+  list-style-type:none;
+  float:left;
+  overflow:hidden;
+  visibility:hidden;
+  transform: rotate(-60deg) skewY(30deg);
+}
+#categories li *{
+  position:absolute;
+  visibility:visible;
+}
+#categories li > div{
+  width:100%;
+  height:100%;
+  text-align:center;
+  color:#fff;
+  overflow:hidden;
+  transform: skewY(-30deg) rotate(60deg);  
+	backface-visibility:hidden;
+  
+}
+
+/* HEX CONTENT */
+#categories li img{
+  left:-100%; right:-100%;
+  width: auto; height:100%;
+  margin:0 auto;   
+}
+
+#categories div h1, #categories div p{
+  width:90%;
+  padding:0 5%;
+  background-color:#008080; background-color: rgba(0, 128, 128, 0.8);
+  font-family: 'Raleway', sans-serif;
+  transition: top .2s ease-out, bottom .2s ease-out, .2s padding .2s ease-out;
+}
+#categories li h1{
+  bottom:110%;
+  font-style:italic;
+  font-weight:normal;
+  font-size:1.5em;
+  padding-top:100%;
+  padding-bottom:100%;
+}
+#categories li h1:after{
+	content:'';
+  display:block;
+  position:absolute;
+  bottom:-1px; left:45%;
+  width:10%;
+  text-align:center;
+  z-index:1;
+  border-bottom:2px solid #fff;
+}
+#categories li p{
+	padding-top:50%;
+	top:110%;
+	padding-bottom:50%;
+}
+
+
+/* HOVER EFFECT  */
+
+#categories li div:hover h1 {
+  bottom:50%;
+  padding-bottom:10%;
+}
+
+#categories li div:hover p{
+  top:50%;
+  padding-top:10%;
+}
+@media (min-width:1201px) {
+  #categories li{
+    width:17.364%; /* = (100-4.5) / 5.5 */
+    padding-bottom: 20.05%; /* =  width /0.866 */
+  }
+  #categories li:nth-child(10n+6), #categories li:nth-child(10n+7), #categories li:nth-child(10n+8), #categories li:nth-child(10n+9), #categories li:nth-child(10n+10) {
+    margin-top: -4.2%;
+    margin-bottom: -4.2%;
+    transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  }
+  #categories li:nth-child(10n+6):last-child, #categories li:nth-child(10n+7):last-child, #categories li:nth-child(10n+8):last-child, #categories li:nth-child(10n+9):last-child, #categories li:nth-child(10n+10):last-child{
+    margin-bottom:0;
+  }
+  #categories li:nth-child(10n+6){
+    margin-left:0.5%;
+  }
+  #categories li:nth-child(5n+2) {
+    margin-left:1%;
+    margin-right:1%;
+  }
+  #categories li:nth-child(5n+3),#categories li:nth-child(5n+4){
+    margin-right:1%;
+  }
+}
+
+
+@media (max-width: 1200px) and (min-width:901px) {
+  #categories li{
+    width:21.444%; /* = (100-3.5) / 4.5 */
+    padding-bottom: 24.763%; /* =  width /0.866 */
+  }
+  #categories li:nth-child(8n+5), #categories li:nth-child(8n+6), #categories li:nth-child(8n+7), #categories li:nth-child(8n+8) {
+    margin-top: -5.298%;
+    margin-bottom: -5.298%;
+    transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  }
+  #categories li:nth-child(8n+5):last-child, #categories li:nth-child(8n+6):last-child, #categories li:nth-child(8n+7):last-child, #categories li:nth-child(8n+8):last-child{
+    margin-bottom:0;
+  }
+  #categories li:nth-child(8n+5){
+    margin-left:0.5%;
+  }
+  #categories li:nth-child(4n+2) {
+    margin-left:1%;
+    margin-right:1%;
+  }
+  #categories li:nth-child(4n+3){
+    margin-right:1%;
+  }
+}
+
+@media (max-width: 900px) and (min-width:601px) {
+  #categories li{
+    width:27.857%; /* = (100-2.5) / 3.5 */
+    padding-bottom: 32.168%; /* =  width /0.866 */
+  }
+  #categories li:nth-child(6n+4), #categories li:nth-child(6n+5), #categories li:nth-child(6n+6) {
+    margin-top: -7.322%;
+    margin-bottom: -7.322%;
+    transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  }
+  #categories li:nth-child(6n+4):last-child, #categories li:nth-child(6n+5):last-child, #categories li:nth-child(6n+6):last-child{
+    margin-bottom:0;
+  }
+  #categories li:nth-child(6n+4){
+    margin-left:0.5%;
+  }
+  #categories li:nth-child(3n+2) {
+    margin-left:1%;
+    margin-right:1%;
+  }
+}
+@media (max-width: 600px) {
+  #categories li{
+    width:39.4%; /* = (100-1.5) / 2.5 */
+    padding-bottom: 45.496%; /* =  width /0.866 */
+  }
+  #categories li:nth-child(4n+3), #categories li:nth-child(4n+4){
+    margin-top: -10.392%;
+    margin-bottom: -10.392%;
+    transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  }
+  #categories li:nth-child(4n+3):last-child, #categories li:nth-child(4n+4):last-child{
+    margin-bottom:0;
+  }
+  #categories li:nth-child(4n+3){
+    margin-left:0.5%;
+  }
+  #categories li:nth-child(2n+2) {
+    margin-left:1%;
+  }
+}
+        </style>
+</head>
+<body>
+
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Elpha</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="#home" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" >Home</a>
+<!--            <a class="mdl-navigation__link" href="">Products</a>-->
+            <a class="mdl-navigation__link" href="#ourteam">Our Team</a>
+                <a class="mdl-navigation__link" href="#products">Products</a>
+            <a class="mdl-navigation__link" href="#portfolio">Portfolio</a>
+            <a class="mdl-navigation__link" href="#contact">Contact Us</a>
+
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer" >
+        <span class="mdl-layout-title">Elpha</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Overview</a>
+          <a class="mdl-navigation__link" href="">Home</a>
+          <a class="mdl-navigation__link" href="">Our Team</a>
+          <a class="mdl-navigation__link" href="">Contact Us</a>
+        </nav>
+      </div>
+
+    </div>
+    <div id="fullpage">
+        <div class="section " id="section0">
+            <div class="content">
+                <br><br><br><br><br>
+            <ul id="categories" class="clr">
+                <li>
+                  <div>
+                    <img src="http://ndl.mgccw.com/mu3/app/20140317/20/1395059281138/sss/7_small.png" alt=""/>
+                    <h1>This is a title a bit longer</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+                <li>
+                  <div>
+                    <img src="http://wackiapps.com/admin/images/apps_images/20130320114316-512x512.jpg" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+              <li>
+                  <div>
+                    <img src="http://cdn.androidpolice.com/wp-content/uploads/2012/08/nexusae0_thumb21.png" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+              <li>
+                  <div>
+                    <img src="http://www.tabletwallpapers.org/download/thumbnails/eagle-wallpaper.jpg" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+                
+<!--              <li class="pusher"></li>-->
+                  <li>
+                  <div>
+                    <img src="http://ndl.mgccw.com/mu3/app/20140317/20/1395059281138/sss/7_small.png" alt=""/>
+                    <h1>This is a title a bit longer</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+                <li>
+                  <div>
+                    <img src="http://wackiapps.com/admin/images/apps_images/20130320114316-512x512.jpg" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+              <li>
+                  <div>
+                    <img src="http://cdn.androidpolice.com/wp-content/uploads/2012/08/nexusae0_thumb21.png" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+              <li>
+                  <div>
+                    <img src="http://www.tabletwallpapers.org/download/thumbnails/eagle-wallpaper.jpg" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+                 <li>
+                  <div>
+                    <img src="http://www.tabletwallpapers.org/download/thumbnails/eagle-wallpaper.jpg" alt=""/>
+                    <h1>This is a title</h1>
+                    <p>Some sample text about the article this hexagon leads to</p>
+                </div>
+              </li>
+                
+            </ul>
+
+            </div>
+        </div>
+        <div class="section" id="section1">
+<!--            <div class="slide" data-anchor="slide1" id="slide1">-->
+                <div class="content">
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col">
+                      
+                      </div>
+                    </div>
+            </div>
+<!--
+            <div class="slide" data-anchor="slide2" id="slide2">
+                <div class="content">
+                    <h1>Slides too!</h1>
+                </div>
+            </div>
+            <div class="slide" data-anchor="slide3" id="slide2">
+                <div class="content">
+                    <h1>More slides!</h1>
+                </div>
+            </div>
+-->
+        </div>
+        <div class="section" id="section2">
+            <div class="content">
+                <h1>Compatible</h1>
+                <p>IE 8+ support.</p>
+            </div>
+        </div>
+         <div class="section" id="section3">
+            <div class="content">
+                <h1>Compatible</h1>
+                <p>IE 8+ support.</p>
+            </div>
+        </div>
+         <div class="section" id="section4">
+            <div class="content">
+                <h1>Yahoo</h1>
+            </div>
+        </div>
+    </div>
+<script type="application/javascript">
+    function shadow(int){
+  return "0px "+int/5+"px "+int/3+"px #111"; //shadow equation. accurate to the material design standards (approximately)
+}
+
+function update(){
+  var list = document.getElementsByClassName("card"); //loop through all HTML elements with the class card.
+  //var list = document.getElementsByTagName("card");
+  //uncomment line above if you want to use <card> instead of <div class='card'>
+  var len = list.length;
+  for(i=0;i<len;i++){
+    list[i].style.display="block";
+    if(!list[i].hasAttribute("no-margin")) //set default styles if no contradicting attributes exist
+    	list[i].style.margin="25px";
+    if(!list[i].hasAttribute("no-height"))
+    	list[i].style.height="100px";
+    if(!list[i].hasAttribute("no-transition"))
+    	list[i].style.transition=".15s box-shadow";
+    if(!list[i].hasAttribute("no-material-border"))
+    	list[i].style.borderBottom="1px solid #AAA";
+    if(!list[i].hasAttribute("no-padding"))
+      list[i].style.padding="10px";
+    doDepth(list[i]); //looping through all of the elements
+  }
+}
+
+function setDepth(int,obj,type){
+  if(int==null)
+    return
+  obj.style.boxShadow = shadow(int); //using shadow equation to set css style
+  if(type==="hover")
+  	obj.setAttribute("z",obj.getAttribute("z-hover")); //for when click and hover interfere with eachother
+}
+
+function doDepth(i){
+  function ga(x) {return i.getAttribute(x);} //easier to call method alias
+
+  //getting attributes
+  var zh = ga("z-default") || null;
+  var zhc = ga("z-click") || null;
+  var zhh = ga("z-hover") || null;
+  setDepth(zh,i);
+  //events of release (mouse leave, mouse up, etc)
+  i.onmouseup   = function(){ setDepth(ga("z"),i)};
+  i.onmouseout  = function(){ setDepth(zh,i)};
+
+  //events of activate (mouse enter, mouse down, etc)
+  i.onmousedown = function(){ setDepth(zhc,i)};
+  i.onmouseover = function(){setDepth(zhh,i,"hover")};
+}
+
+update(); //initial update</script>
+    <script type="text/javascript" src="javascript.fullPage.js"></script>
+    <script type="text/javascript">
+        fullpage.initialize('#fullpage', {
+            anchors: ['home', 'ourteam', 'products','portfolio', 'contact', 'lastPage'],
+            menu: '#menu',
+            css3:true,
+            //navigation
+            'navigation': true,
+            'navigationPosition': 'right',
+            'navigationColor': '#000',
+            'navigationTooltips': ['home', 'ourteam','products', 'portfolio', 'contact', 'lastPage'],
+            'slidesNavigation': false,
+            'slidesNavPosition': 'bottom',
+            'scrollBar': false,
+        });
+
+    </script>
+
+    </body>
+    </html>
